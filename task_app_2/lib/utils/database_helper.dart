@@ -68,10 +68,17 @@ class DatabaseHelper {
     return result;
   }
 
-  Future<int> deleteProduct(int id,) async {
+  Future<int> deleteSection(int id,) async {
     var db = await this.database;
     int result = await db
         .delete(table, where: '$colId = ?', whereArgs: [id]);
+    return result;
+  }
+
+  Future<int> deleteAllSection() async {
+    var db = await this.database;
+    int result = await db
+        .delete(table);
     return result;
   }
 
